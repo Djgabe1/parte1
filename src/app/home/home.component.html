@@ -1,23 +1,44 @@
+      <div class="row ">
+        <div class="input-field col s4 right">
+         <div class="row col12">
+         <div class="col s8">
+          <input type="date" #textId >
+         </div>
+         <div class="col s4">
+          <a class="waves-effect waves-light" (click)="getCompra(textId.value)"><i class="material-icons right">search</i></a>
+         </div>
+         
+          
+         </div>
+        </div>
+
+      </div>
 
 
-<table class="centered">
-    <thead>
-      <tr>
+  <ng-container *ngIf="notFound">
+    Fecha no disponible
+  </ng-container>
+  
+  <ng-container *ngIf="compras">
+    
+    <table class="centered">
+      <thead class="ctable">
+<tr>
           <th>Nombre</th>
-          <th>Compra</th>
+          <th>Compro</th>
           <th>Fecha</th>
-          <th>Detalles de <br> cliente</th>
+          <th>Detalle</th>
+        </tr>
+      </thead>
+     <tbody class="cuerpo">
+      <tr *ngFor="let array of compras">
+        <td>{{array.nombre}}</td>
+        <td>{{array.compro}}</td>
+        <td>{{array.date}}</td>
+        <td><a [routerLink]="['/cliente', array.clientId]" >
+          <i class="material-icons">description</i></a></td>
       </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <td>Alvin</td>
-        <td>Eclair</td>
-        <td>$0.87</td>
-        <td><a href=""><i class="material-icons">description</i></a></td>
-      </tr>
-     
-    </tbody>
-  </table>
+    </tbody> 
+    </table>
+  </ng-container>
 

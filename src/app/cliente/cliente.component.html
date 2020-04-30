@@ -1,0 +1,30 @@
+<br>
+<ng-container *ngIf="notFound">
+    Fecha no disponible
+  </ng-container>
+  
+  <ng-container *ngIf="cliente">
+    
+    <table class="centered">
+      <thead class="ctable">
+<tr>
+        <th>clientId</th>
+        <th>nombre</th>
+        <th>compro</th>
+        <th>Targeta de <br> credito</th>
+        <th>Monto</th>
+        <th>fecha</th>
+      </tr>
+    </thead>
+   <tbody class="cuerpo">
+      <tr *ngFor="let array of cliente">
+        <td>{{array.clientId}}</td>
+        <td>{{array.nombre}}</td>
+        <td>{{array.compro}}</td>
+        <td>{{array.tdc}}</td>
+        <td>{{array.monto}}</td>
+        <td>{{array.date}}</td>
+      </tr>
+    </tbody> 
+    </table>
+  </ng-container>
